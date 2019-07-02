@@ -235,7 +235,7 @@ if [[ "$1" == "stack" && "$2" == "source" ]]; then
     if ! apt-cache policy | grep -q opencontrail; then
         sudo -E add-apt-repository -y ppa:opencontrail
         # pin ppa packages priority to prevent conflicts, only packages not found elsewhere will be installed from this ppa
-        if _vercmp $os_RELEASE "==" '14.04'; then
+        if _vercmp $os_RELEASE "==" '16.04'; then
             cat <<- EOF | sudo tee /etc/apt/preferences.d/contrail-ppa
 				Package: librdkafka*
 				Pin: release l=OpenContrail
@@ -245,7 +245,7 @@ if [[ "$1" == "stack" && "$2" == "source" ]]; then
 				Pin: release l=OpenContrail
 				Pin-Priority: 50
 			EOF
-        elif _vercmp $os_RELEASE "==" '16.04'; then
+        elif _vercmp $os_RELEASE "==" '14.04'; then
             cat <<- EOF | sudo tee /etc/apt/preferences.d/contrail-ppa
 				Package: *
 				Pin: release l=OpenContrail
