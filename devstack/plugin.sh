@@ -255,7 +255,7 @@ if [[ "$1" == "stack" && "$2" == "source" ]]; then
             sudo sed -i 's/xenial/trusty/' /etc/apt/sources.list.d/opencontrail-ubuntu-ppa-xenial.list
         fi
     fi
-    if _vercmp $os_RELEASE "==" '16.04' && ! apt-cache policy | grep -q bionic; then
+    if _vercmp $os_RELEASE "==" '14.04' && ! apt-cache policy | grep -q bionic; then
         # For 16.04, backport rdkafka library from 18.04
         sudo cp /etc/apt/sources.list /etc/apt/sources.list.d/bionic.list
         sudo sed -i 's/xenial/bionic/' /etc/apt/sources.list.d/bionic.list
